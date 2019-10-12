@@ -19,8 +19,7 @@ class _UserHomePageState extends State<UserHomePage> {
         ) ,
       ), 
       
-      body: Container(
-        width: double.infinity,
+      body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
