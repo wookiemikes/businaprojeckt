@@ -72,7 +72,7 @@ class HomePage extends StatelessWidget {
                           height: 50.0,
                           decoration: new BoxDecoration(
                               color: Color(0xFF18D191),
-                              borderRadius: new BorderRadius.circular(20.0)),
+                              borderRadius: new BorderRadius.circular(15.0)),
                           child: new Text("Sign In With Email",
                               style: new TextStyle(
                                   fontSize: 20.0, color: Colors.white))),
@@ -93,7 +93,7 @@ class HomePage extends StatelessWidget {
                         height: 50.0,
                         decoration: new BoxDecoration(
                             color: Color(0xFF4364A1),
-                            borderRadius: new BorderRadius.circular(20.0)),
+                            borderRadius: new BorderRadius.circular(15.0)),
                         child: new Text("Sign in With FaceBook",
                             style: new TextStyle(
                                 fontSize: 20.0, color: Colors.white))),
@@ -114,7 +114,7 @@ class HomePage extends StatelessWidget {
                         height: 50.0,
                         decoration: new BoxDecoration(
                             color: Color(0xFFDF513B),
-                            borderRadius: new BorderRadius.circular(20.0)),
+                            borderRadius: new BorderRadius.circular(15.0)),
                         child: new Text("Sign in With Google",
                             style: new TextStyle(
                                 fontSize: 20.0, color: Colors.white))),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:busina/pages/busina_user_signup.dart';
+import 'package:busina/pages/busina_user_booking.dart';
 
 class UserLogin extends StatefulWidget {
   @override
@@ -58,7 +59,7 @@ class _UserLoginState extends State<UserLogin> {
               ),
             ),
             new SizedBox(
-              height: 15.0,
+              height: 10.0,
             ),
             Padding(
               padding:
@@ -76,11 +77,11 @@ class _UserLoginState extends State<UserLogin> {
                     padding: const EdgeInsets.only(
                         left: 20.0, right: 5.0, top: 10.0),
                     child: GestureDetector(
-                      /*onTap: () {
+                      onTap: () {
                         Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => HomePage()
+                          builder: (context) => UserHomePage()
                         ));
-                      },*/
+                      },
                           child: new Container(
                             alignment: Alignment.center,
                             height: 30.0,
