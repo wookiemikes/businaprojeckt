@@ -41,7 +41,7 @@ class _UserHomePageState extends State<UserHomePage> {
                           decoration: new BoxDecoration(
                               color: Color(0xFF18D191),
                               borderRadius: new BorderRadius.circular(9.0)),
-                          child: new Text("Login",
+                          child: new Text("Book a Ticket Now!",
                               style: new TextStyle(
                                   fontSize: 20.0, color: Colors.white))),
                     ),
