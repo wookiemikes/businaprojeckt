@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:busina/pages/busina_user_signup.dart';
 
+class UserLogin extends StatefulWidget {
+  @override
+  _UserLoginState createState() => _UserLoginState();
+}
 
-class UserLogin extends StatelessWidget {
-  
+class _UserLoginState extends State<UserLogin> {
   @override
   Widget build(BuildContext context) {
     
@@ -20,10 +24,10 @@ class UserLogin extends StatelessWidget {
             new Stack(
              children: <Widget>[
                 new Container(
-                height: 150.0,
-                width: 150.0,
+                height: 120.0,
+                width: 120.0,
                 decoration: new BoxDecoration(
-                  borderRadius: new BorderRadius.circular(75.0),
+                  borderRadius: new BorderRadius.circular(60.0),
                   color: Colors.greenAccent,
                 ),
                 child: new Icon(
@@ -77,15 +81,15 @@ class UserLogin extends StatelessWidget {
                           builder: (context) => HomePage()
                         ));
                       },*/
-                                          child: new Container(
+                          child: new Container(
                             alignment: Alignment.center,
-                            height: 60.0,
+                            height: 30.0,
                             decoration: new BoxDecoration(
                                 color: Color(0xFF18D191),
                                 borderRadius: new BorderRadius.circular(9.0)),
                             child: new Text("Login",
                                 style: new TextStyle(
-                                    fontSize: 20.0, color: Colors.white))),
+                                    fontSize: 12.0, color: Colors.white))),
                     ),
                   ),
                 ),
@@ -95,10 +99,10 @@ class UserLogin extends StatelessWidget {
                         left: 10.0, right: 20.0, top: 10.0),
                     child: new Container(
                         alignment: Alignment.center,
-                        height: 60.0,
+                        height: 30.0,
                         child: new Text("Forgot Password?",
                             style: new TextStyle(
-                                fontSize: 17.0, color: Color(0xFF18D191)))),
+                                fontSize: 10.0, color: Color(0xFF18D191)))),
                   ),
                 )
               ],
@@ -108,9 +112,17 @@ class UserLogin extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.only(bottom:18.0),
-                    child: new Text("Create A New Account ",style: new TextStyle(
-                                fontSize: 17.0, color: Color(0xFF18D191),fontWeight: FontWeight.bold)),
+                    padding: const EdgeInsets.only(bottom:3.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => SignupPage()
+                        ));
+                      },
+
+                            child: new Text("Create A New Account ",style: new TextStyle(
+                                fontSize: 15.0, color: Color(0xFF18D191),fontWeight: FontWeight.bold)),
+                    ),
                   ),
                 ],
               ),
@@ -121,3 +133,5 @@ class UserLogin extends StatelessWidget {
     );
   }
 }
+ 
+  
