@@ -11,6 +11,7 @@ class UserLogin extends StatefulWidget {
 
 class _UserLoginState extends State<UserLogin> {
   String _email, _password;
+  bool isLoading = false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -47,7 +48,7 @@ class _UserLoginState extends State<UserLogin> {
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0, bottom: 50.0),
                   child: new Text(
-                    "BUSina",
+                    "BUSINA",
                     style: new TextStyle(fontSize: 35.0),
                   ),
                 )
@@ -60,7 +61,7 @@ class _UserLoginState extends State<UserLogin> {
                 validator: (input) {
                   if (input.isEmpty) {
                     return 'Please enter an email';
-                  } else if (input.indexOf('@') <= 0){
+                  } else if (input.indexOf('@') <= 0) {
                     return 'Please enter valid email';
                   }
                 },
@@ -153,9 +154,23 @@ class _UserLoginState extends State<UserLogin> {
     final formState = _formKey.currentState;
     if (formState.validate()) {
       formState.save();
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return Container(
+              color: Color(0xFF18D191),
+               child: Center(
+                  child: CircularProgressIndicator(
+                    backgroundColor: Color(0xFF18D191),
+                    valueColor: AlwaysStoppedAnimation (Colors.white),
+                  ),
+            ),
+            );
+          });
       try {
         AuthResult user = await FirebaseAuth.instance
             .signInWithEmailAndPassword(email: _email, password: _password);
+        Navigator.pop(context);
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => UserHomePage()));
       } catch (error) {

@@ -3,14 +3,14 @@ import 'package:busina/pages/busina_user_bookconfirm.dart';
 import 'package:busina/pages/busina_user_confirmation.dart';
 import 'package:busina/pages/busina_user_ticket.dart';
 
-class UserHomePage extends StatefulWidget {
+class Home extends StatefulWidget {
  @override
  State<StatefulWidget> createState() {
     return _HomeState();
   }
 }
 
-class _HomeState extends State<UserHomePage> {
+class _HomeState extends State<Home> {
   int _currentIndex = 0;
   final List<Widget> _children = [BookingPage(),BookingConfirmPage(),TicketPage()];
  @override
