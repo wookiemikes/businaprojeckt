@@ -16,134 +16,186 @@ class _UserLoginState extends State<UserLogin> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: new AppBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.amber[600],
           elevation: 0.0,
-          iconTheme: new IconThemeData(color: Color(0xFF18D191))),
-      body: Form(
-        key: _formKey,
-        child: new Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          iconTheme: new IconThemeData(color: Colors.white)),
+      body: Container(
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            stops: [0.1, 0.5, 0.7, 0.9],
+            colors: [
+              Colors.amber[600],
+              Colors.amber[900],
+              Colors.amber[900],
+              Colors.amber[900],
+            ],
+          ),
+        ),
+        child: Stack(
+          alignment: Alignment.topCenter,
           children: <Widget>[
-            new Stack(
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                new Container(
-                  height: 120.0,
-                  width: 120.0,
-                  decoration: new BoxDecoration(
-                    borderRadius: new BorderRadius.circular(60.0),
-                    color: Colors.greenAccent,
-                  ),
-                  child: new Icon(
-                    Icons.directions_bus,
-                    color: Colors.white,
-                    size: 100.0,
-                  ),
+                Container(
+                  height: 150.0,
+                  width: 150.0,
+                  child: Image.asset('lib/assets/icons/bus.png'),
                 ),
-              ],
-            ),
-            new Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0, bottom: 50.0),
-                  child: new Text(
-                    "BUSINA",
-                    style: new TextStyle(fontSize: 35.0),
-                  ),
-                )
-              ],
-            ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-              child: new TextFormField(
-                validator: (input) {
-                  if (input.isEmpty) {
-                    return 'Please enter an email';
-                  } else if (input.indexOf('@') <= 0) {
-                    return 'Please enter valid email';
-                  }
-                },
-                onSaved: (input) => _email = input,
-                decoration: new InputDecoration(labelText: 'Email'),
-              ),
-            ),
-            new SizedBox(
-              height: 10.0,
-            ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-              child: new TextFormField(
-                validator: (input) {
-                  if (input.length < 6) {
-                    return 'Your password needs to be atleast 6 characters';
-                  }
-                },
-                onSaved: (input) => _password = input,
-                obscureText: true,
-                decoration: new InputDecoration(labelText: 'Password'),
-              ),
-            ),
-            new Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        left: 20.0, right: 5.0, top: 10.0),
-                    child: GestureDetector(
-                      onTap: signIn,
-                      child: new Container(
-                          alignment: Alignment.center,
-                          height: 30.0,
-                          decoration: new BoxDecoration(
-                              color: Color(0xFF18D191),
-                              borderRadius: new BorderRadius.circular(9.0)),
-                          child: new Text("Login",
-                              style: new TextStyle(
-                                  fontSize: 12.0, color: Colors.white))),
+                Container(
+                  child: Text(
+                    'BUSINA',
+                    style: TextStyle(
+                      fontFamily: 'Archivo',
+                      fontSize: 50.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        left: 10.0, right: 20.0, top: 10.0),
-                    child: new Container(
-                        alignment: Alignment.center,
-                        height: 30.0,
-                        child: new Text("Forgot Password?",
-                            style: new TextStyle(
-                                fontSize: 10.0, color: Color(0xFF18D191)))),
-                  ),
-                )
               ],
             ),
-            Expanded(
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 20.0,
+                right: 20.0,
+                top: 100.0,
+              ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 3.0),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SignupPage()));
-                      },
-                      child: new Text("Create A New Account ",
-                          style: new TextStyle(
-                              fontSize: 15.0,
-                              color: Color(0xFF18D191),
-                              fontWeight: FontWeight.bold)),
+                  Form(
+                    key: _formKey,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                          padding: const EdgeInsets.only(
+                            left: 10.0,
+                            right: 10.0,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.grey[100].withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          child: TextFormField(
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                            validator: (input) {
+                              if (input.isEmpty) {
+                                return 'Please enter an email';
+                              } else if (input.indexOf('@') <= 0) {
+                                return 'Please enter valid email';
+                              }
+                            },
+                            onSaved: (input) => _email = input,
+                            decoration: InputDecoration(
+                                contentPadding:
+                                    EdgeInsets.symmetric(vertical: 5),
+                                border: InputBorder.none,
+                                labelText: 'Email',
+                                labelStyle: TextStyle(
+                                  color: Colors.white.withOpacity(0.5),
+                                )),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Container(
+                          padding: const EdgeInsets.only(
+                            left: 10.0,
+                            right: 10.0,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.grey[100].withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          child: TextFormField(
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                            validator: (input) {
+                              if (input.length < 6) {
+                                return 'Your password needs to be atleast 6 characters';
+                              }
+                            },
+                            onSaved: (input) => _password = input,
+                            obscureText: true,
+                            decoration: InputDecoration(
+                                contentPadding:
+                                    EdgeInsets.symmetric(vertical: 5),
+                                border: InputBorder.none,
+                                labelText: 'Password',
+                                labelStyle: TextStyle(
+                                  color: Colors.white.withOpacity(0.5),
+                                )),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        Container(
+                          width: double.infinity,
+                          height: 45.0,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(3.0)),
+                          child: FlatButton(
+                            textColor: Colors.amber[900],
+                            onPressed: signIn,
+                            child: Text('LOGIN'),
+                          ),
+                        ),
+                        Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              FlatButton(
+                                padding: EdgeInsets.only(
+                                  left: 0.0,
+                                ),
+                                splashColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onPressed: signIn,
+                                child: Text(
+                                  'Forgot password?',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              FlatButton(
+                                splashColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => SignupPage()));
+                                },
+                                child: Text(
+                                  'SIGN UP',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
                     ),
-                  ),
+                  )
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -159,12 +211,12 @@ class _UserLoginState extends State<UserLogin> {
           builder: (BuildContext context) {
             return Container(
               color: Color(0xFF18D191),
-               child: Center(
-                  child: CircularProgressIndicator(
-                    backgroundColor: Color(0xFF18D191),
-                    valueColor: AlwaysStoppedAnimation (Colors.white),
-                  ),
-            ),
+              child: Center(
+                child: CircularProgressIndicator(
+                  backgroundColor: Color(0xFF18D191),
+                  valueColor: AlwaysStoppedAnimation(Colors.white),
+                ),
+              ),
             );
           });
       try {
@@ -186,6 +238,7 @@ class _UserLoginState extends State<UserLogin> {
         } else {
           toastShow('No internet access', Colors.red);
         }
+        Navigator.pop(context);
       }
     }
   }

@@ -59,7 +59,7 @@ class HomePage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                  left: 10.0, right: 10.0,
+                  left: 20.0, right: 20.0 , bottom: 20.0, 
                 ),
                 child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -103,45 +103,6 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  OutlineButton(
-                    borderSide: BorderSide(
-                      color: Colors.white,
-                      style: BorderStyle.solid,
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => UserLogin(),
-                          ));
-                    },
-                    child: Stack(
-                      children: <Widget>[
-                        Container(
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Icon(
-                              Icons.phone_android,
-                              color: Colors.white,
-                              size: 20.0,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              'Sign in with phone number',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15.0,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
                 ],
               ),
               )
